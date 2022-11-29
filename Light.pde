@@ -12,8 +12,8 @@ class Light{
     loadPixels();
     waldo.loadPixels();
     
-    for (int x = 0; x < waldo.width; x++ ) {
-      for (int y = 0; y < waldo.height; y++ ) {
+    for (int x = 0; x < waldo.width; x=x+3 ) {
+      for (int y = 0; y < waldo.height; y=y+3 ) {
   
         int loc = x + y*waldo.width;
   
@@ -21,21 +21,19 @@ class Light{
         float g = green(waldo.pixels[loc]);
         float b = blue (waldo.pixels[loc]);
   
-        float distance = dist(x, y, lightX, lightY);
-  
-        float adjustBrightness = map(distance, 0, 50, 8, 0);
+        float adjustBrightness = map(dist(x, y, lightX, lightY), 0, 200, 8, 0);
         r *= adjustBrightness;
         g *= adjustBrightness;
         b *= adjustBrightness;
   
-        r = constrain(r, 0, 255);
-        g = constrain(g, 0, 255);
-        b = constrain(b, 0, 255);
+        r = constrain(r, 0, 180);
+        g = constrain(g, 0, 180);
+        b = constrain(b, 0, 180);
   
-        color c = color(r, g, b);
-        pixels[loc] = c;
+        pixels[loc] = color(r,g,b);
+      
+      }
     }
-   }
   updatePixels();
   }
 

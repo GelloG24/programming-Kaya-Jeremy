@@ -27,6 +27,7 @@ class Letter {
   
    fill(letterColor);
    text(myLetter, xRandom, yRandom); //places letters on random locations
+   light.displayLight(xRandom,yRandom);
    
    xRandom = xRandom + xSpeed; //making the letters move across the screen
    yRandom = yRandom + ySpeed; // ----
@@ -50,7 +51,6 @@ class Letter {
    popMatrix();
    xPosition = x;
    yPosition = y;
-   //light.displayLight(x, y);
  }
  
  

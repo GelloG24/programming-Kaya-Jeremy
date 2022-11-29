@@ -52,10 +52,12 @@ class Word {
     angleB = atan2(dy, dx);  //returns the angle
     xPosition = lastX - (cos(angleB) * 20); 
     yPosition = lastY - (sin(angleB) * 20);
-    
-    letters[i].drawLetterTwo(xPosition, yPosition, angleB); //updates letters w new positions
+        
     lights[i].displayLight(xPosition, yPosition);
+    letters[i].drawLetterTwo(xPosition, yPosition, angleB); //updates letters w new positions
    }
  }
+ 
+ 
  
 }
