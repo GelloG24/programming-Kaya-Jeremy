@@ -6,6 +6,7 @@
 Word word;
 PImage waldo;
 
+
 int state;  // this program has two states so far
 
 void setup() {

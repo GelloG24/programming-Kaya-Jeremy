@@ -3,12 +3,14 @@ class Letter {
  char myLetter;
  float xPosition, yPosition;
  color letterColor;
+ Light light;
  
  Letter (char letter, float xPosition, float yPosition) {
     myLetter = letter;
     this.xPosition = xPosition;
     this.yPosition = yPosition;
     letterColor = color( int(random(150)), int(random(50, 100)), int(random(150,250)));
+    light = new Light(xPosition, yPosition);
  }
  
  float getX(){
@@ -48,6 +50,7 @@ class Letter {
    popMatrix();
    xPosition = x;
    yPosition = y;
+   //light.displayLight(x, y);
  }
  
  

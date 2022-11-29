@@ -1,20 +1,26 @@
 class Word {
   
+ Light light;
  String myWord;
  float xPosition, yPosition;
  float angle;
  float angleB = 0.0;
  Letter [] letters;
+ Light[] lights;
  
  Word (String word, float xPosition, float yPosition) {
     myWord = word;
     this.xPosition = xPosition;
     this.yPosition = yPosition;
     letters = new Letter [myWord.length()];
+    lights = new Light[myWord.length()];
     
     // split te word in an array of the individual letters
     for(int i = 0; i< letters.length; i++) {
-      letters[i] = new Letter (myWord.charAt(i), random(20, width-20), random(20,height-20));
+      float ranX = random(20, width-20);
+      float ranY = random(20,height-20);
+      letters[i] = new Letter (myWord.charAt(i), ranX, ranY);
+      lights[i] = new Light(ranX, ranY);
     }
  }
  
@@ -48,6 +54,7 @@ class Word {
     yPosition = lastY - (sin(angleB) * 20);
     
     letters[i].drawLetterTwo(xPosition, yPosition, angleB); //updates letters w new positions
+    lights[i].displayLight(xPosition, yPosition);
    }
  }
  
